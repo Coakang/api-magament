@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>前端页面</title>
+</head>
+<body>
+  <h1>Hello, Frontend!</h1>
+  <button onclick="getData()">获取数据</button>
+  <div id="dataContainer"></div>
+
+  <script>
+    function getData() {
+      fetch('http://localhost:3000/api/data')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('dataContainer').innerText = JSON.stringify(data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  </script>
+</body>
+</html>
+
