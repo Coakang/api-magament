@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>前端页面</title>
+  <title>api-management</title>
 </head>
 <body>
   <h1>Hello, Frontend!</h1>
   <button onclick="getData()">获取数据</button>
-  <div id="dataContainer"></div>
 
-  <script>
-    function getData() {
-      fetch('http://localhost:3000/api/data')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('dataContainer').innerText = JSON.stringify(data);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    }
-  </script>
+  <div id="dataContainer"></div>
+  <script src="script/getData.js"></script>
+
+  <h3>选择文件</h3>
+  <form action="http://localhost:3000/file_upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" size="50" />
+    <br />
+    <input type="submit" value="上传文件" />
+  </form>
 </body>
 </html>
 
